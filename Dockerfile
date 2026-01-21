@@ -14,6 +14,8 @@ COPY package*.json ./
 RUN npm install --omit=dev
 COPY --from=build /app/dist ./dist
 
-EXPOSE 4321
+ENV HOST=0.0.0.0
+ENV PORT=80
+EXPOSE 80
 
 CMD ["node", "./dist/server/entry.mjs"]
